@@ -2,7 +2,7 @@
 .venv/
 __pycache__/
 
-#Ignore files with an extension
+#Ignore all files with an extension
 *.pyc
 
 #Ignore specific files
