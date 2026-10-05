@@ -4,3 +4,5 @@ __pycache__/
 
 #Ignore files with an extension
 *.pyc
+
+#Ignore specific files
