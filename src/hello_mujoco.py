@@ -18,15 +18,17 @@ xml = """
     </asset>
 
     <worldbody>
-        <body name="pendulum" pos="0 0 2.5">
-            <joint name="hinge" type="hinge" axis="0 1 0"/>
+        <geom name="floor" type="plane" size="0 0 .25" material="matplane"/>
 
-            <geom
-                type="capsule"
-                fromto="0 0 0 0 0 -1"
-                size="0.05"
-                mass="1"
-            />
+        <body name="link1" pos="0 0 2.5">
+            <joint name="hinge1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -1" size="0.02" mass="1"/>
+            
+            <!-- Fixed pos to -1 so it attaches exactly to the bottom tip of link1 -->
+            <body name="link2" pos="0 0 -1">
+                <joint name="hinge2" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0 -1" size="0.02" mass="1"/>
+            </body> <!-- Fixed the missing > bracket here -->
         </body>
     </worldbody>
 </mujoco>
@@ -35,7 +37,8 @@ xml = """
 model = mujoco.MjModel.from_xml_string(xml)
 data = mujoco.MjData(model)
 
-data.qpos[0] = 0.7
+data.qpos[0] = 2
+data.qpos[1] = 0.2
 
 with mujoco.viewer.launch_passive(model, data) as viewer:
 
