@@ -7,13 +7,13 @@ xml = """
     <option gravity="0 0 -9.81"/>
 
     <asset>
-        <!-- 1. The Skybox: Blends blue to black in the background -->
+        <!-- sky -->
         <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
         
-        <!-- 2. The Floor Texture: A subtle grey checkerboard pattern -->
+        <!-- floor texture; grey checkerboard pattern -->
         <texture name="texplane" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="300" height="300" mark="edge" markrgb="0.8 0.8 0.8"/>
         
-        <!-- 3. The Floor Material: Repeats the checkerboard texture -->
+        <!-- floor material; repeats the checkerboard texture -->
         <material name="matplane" texture="texplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
     </asset>
 
