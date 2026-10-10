@@ -24,11 +24,10 @@ xml = """
             <joint name="hinge1" type="hinge" axis="0 1 0"/>
             <geom type="capsule" fromto="0 0 0 0 0 -1" size="0.02" mass="1"/>
             
-            <!-- Fixed pos to -1 so it attaches exactly to the bottom tip of link1 -->
             <body name="link2" pos="0 0 -1">
                 <joint name="hinge2" type="hinge" axis="0 1 0"/>
                 <geom type="capsule" fromto="0 0 0 0 0 -1" size="0.02" mass="1"/>
-            </body> <!-- Fixed the missing > bracket here -->
+            </body> 
         </body>
     </worldbody>
 </mujoco>
@@ -38,7 +37,7 @@ model = mujoco.MjModel.from_xml_string(xml)
 data = mujoco.MjData(model)
 
 data.qpos[0] = 2
-data.qpos[1] = 0.2
+data.qpos[1] = 0
 
 with mujoco.viewer.launch_passive(model, data) as viewer:
 
